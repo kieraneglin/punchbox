@@ -1,3 +1,3 @@
 module Punchbox
-  # Your code goes here...
+   require 'punchbox/engine' if defined?(Rails)
 end
