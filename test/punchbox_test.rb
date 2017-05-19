@@ -1,7 +1,6 @@
 require 'test_helper'
+include AttributeHelper
 
-class Punchbox::Test < ActiveSupport::TestCase
-  test "truth" do
-    assert_kind_of Module, Punchbox
-  end
+module Punchbox
+  class Test < ActiveSupport::TestCase; end
 end
