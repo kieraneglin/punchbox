@@ -1,26 +1,34 @@
-Punchbox.for('Posts') = class {
-  // This is a rough-draft for the DSL I'd like to create.
-  // Things will change, especially when it comes to declaring a class
+// const posts = {
+//   // This is a rough-draft for the DSL I'd like to create.
+//   // Things will change, especially when it comes to declaring a class
+//   //
+//   // constructor:() {
+//   //   // this._namespace = 'admin/posts';
+//   //   console.log('CON');
+//   //   // Class setup.  Not strictly related to PunchBox
+//   // }
+//
+//   controller: () => {
+//     console.log('FROM CONTROLLER');
+//     // Code for every action of this controller
+//   },
+//
+//
+//   index: () => {
+//     console.log('INDEX');
+//     // Code for Index
+//   }
+// };
 
-  constructor() {
-    // this._namespace = 'admin/posts';
-    console.log('CON');
-    // Class setup.  Not strictly related to PunchBox
-  }
+function posts() {
+}
 
-  _controller() {
-    console.log('FROM CONTROLLER');
-    // Code for every action of this controller
-  }
-
-  static _namespace() {
-    return 'admin/posts';
-  }
-
-  index() {
-    console.log('INDEX');
-    // Code for Index
-  }
+posts.prototype.controller = function () {
+  console.log('controller!');
 };
 
-console.log(Object.getOwnPropertyNames(Punchbox));
+posts.prototype.index = function () {
+  console.log('index!');
+};
+
+Punchbox.on('Posts', posts);

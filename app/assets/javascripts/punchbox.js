@@ -1,32 +1,38 @@
 class Punchbox {
-  constructor() {
-    this._onPageLoad(() => {
-      this._assignAttributes();
-      this.render();
-    });
-  }
+  static on(controller, classOrObject) {
+    let punchbox = new Punchbox();
+    punchbox.instantiatable = classOrObject;
 
-  render() {
-    let punchbox = Punchbox[this.controller];
-    let namespace = this._getNamespace(punchbox);
-    // let controller = Punchbox[this.controller]._namespace;
-    console.log(namespace);
+    punchbox._onPageLoad(() => {
+      punchbox._assignAttributes();
+      if (controller === punchbox.controller) {
+        punchbox._run();
+      }
+    });
   }
 
   _assignAttributes() {
     let bodyTag = document.getElementsByTagName('body')[0];
 
-    this.controller = bodyTag.dataset.punchboxController;
+    this.controller = this._snakeToPascal(bodyTag.dataset.punchboxController);
     this.action = bodyTag.dataset.punchboxAction;
   }
 
-  _getNamespace(pbInstance) {
-    if(typeof pbInstance._namespace === 'undefined') {
-      return null;
-    } else if (typeof pbInstance._namespace === 'function') {
-      return pbInstance._namespace();
-    } else {
-      return pbInstance._namespace;
+  _callIfExists(functionName) {
+    let instance = this.instantiatable;
+
+    if (typeof instance[functionName] === 'function') {
+      instance[functionName]();
+    }
+  }
+
+  _instantiate() {
+    let classOrObject = this.instantiatable;
+
+    if (typeof classOrObject === 'function') {
+      return new classOrObject();
+    } else if (typeof classOrObject === 'object') {
+      return classOrObject;
     }
   }
 
@@ -44,11 +50,23 @@ class Punchbox {
     }
   }
 
-  _snakeToCamelCase(string){
-    return string.replace(/(_\w)/g, (m) => {
-      return m[1].toUpperCase();
-    });
+  _run() {
+    // It's like 4am.  Please excuse my naming
+    this.instantiatable = this._instantiate();
+    this._callIfExists('controller');
+    this._callIfExists(this.action);
+  }
+
+  _snakeToPascal(string) {
+    return string.split('_').map((str) => {
+      return this._upperFirst(
+        str.split('/')
+        .map(this._upperFirst)
+        .join('/'));
+    }).join('');
+  }
+
+  _upperFirst(string) {
+    return string.slice(0, 1).toUpperCase() + string.slice(1, string.length);
   }
 }
-
-new Punchbox();
