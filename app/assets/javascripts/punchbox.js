@@ -7,9 +7,10 @@ class Punchbox {
   }
 
   render() {
-    let controller = new Punchbox[this.controller]();
-    let action = controller[this.action]();
-    let namespace = this._getNamespace(controller);
+    let punchbox = Punchbox[this.controller];
+    let namespace = this._getNamespace(punchbox);
+    // let controller = Punchbox[this.controller]._namespace;
+    console.log(namespace);
   }
 
   _assignAttributes() {
@@ -19,13 +20,13 @@ class Punchbox {
     this.action = bodyTag.dataset.punchboxAction;
   }
 
-  _getNamespace(controller) {
-    if(typeof controller._namespace === 'undefined') {
+  _getNamespace(pbInstance) {
+    if(typeof pbInstance._namespace === 'undefined') {
       return null;
-    } else if (typeof controller._namespace === 'function') {
-      return controller._namespace();
+    } else if (typeof pbInstance._namespace === 'function') {
+      return pbInstance._namespace();
     } else {
-      return controller._namespace;
+      return pbInstance._namespace;
     }
   }
 

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Pages</h1>
+w<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_pages.each do |admin_page| %>
+      <tr>
+        <td><%= admin_page.title %></td>
+        <td><%= admin_page.body %></td>
+        <td><%= link_to 'Show', admin_page %></td>
+        <td><%= link_to 'Edit', edit_admin_page_path(admin_page) %></td>
+        <td><%= link_to 'Destroy', admin_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Page', new_admin_page_path %>
