@@ -19,6 +19,12 @@
 //     // Code for Index
 //   }
 // };
+document.addEventListener('punchbox:admin/pages:run', () => {
+  console.log('posts run');
+})
+document.addEventListener('punchbox:admin/pages:index:run', () => {
+  console.log('posts index run');
+})
 
 function posts() {
 }
@@ -31,4 +37,4 @@ posts.prototype.index = function () {
   console.log('index!');
 };
 
-Punchbox.on('Posts', posts);
+Punchbox.on('Admin/Pages', posts);

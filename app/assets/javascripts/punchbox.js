@@ -14,7 +14,8 @@ var Punchbox = function () {
     value: function _assignAttributes() {
       var bodyTag = document.getElementsByTagName('body')[0];
 
-      this.controller = this._snakeToPascal(bodyTag.dataset.punchboxController);
+      this.controller = bodyTag.dataset.punchboxController;
+      this.pascalController = this._snakeToPascal(this.controller);
       this.action = bodyTag.dataset.punchboxAction;
     }
   }, {
@@ -57,8 +58,12 @@ var Punchbox = function () {
     value: function _run() {
       // It's like 4am.  Please excuse my naming
       this.instantiatable = this._instantiate();
+
       this._callIfExists('controller');
+      document.dispatchEvent(new Event('punchbox:' + this.controller + ':run'));
+
       this._callIfExists(this.action);
+      document.dispatchEvent(new Event('punchbox:' + this.controller + ':' + this.action + ':run'));
     }
   }, {
     key: '_snakeToPascal',
@@ -82,7 +87,7 @@ var Punchbox = function () {
 
       punchbox._onPageLoad(function () {
         punchbox._assignAttributes();
-        if (controller === punchbox.controller) {
+        if (controller === punchbox.pascalController) {
           punchbox._run();
         }
       });
