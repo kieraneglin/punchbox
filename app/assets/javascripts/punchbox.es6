@@ -5,7 +5,7 @@ class Punchbox {
 
     punchbox._onPageLoad(() => {
       punchbox._assignAttributes();
-      if (controller === punchbox.pascalController) {
+      if (controller === this._snakeToPascal(punchbox.controller)) {
         punchbox._run();
       }
     });
@@ -15,7 +15,6 @@ class Punchbox {
     let bodyTag = document.getElementsByTagName('body')[0];
 
     this.controller = bodyTag.getAttribute('data-punchbox-controller');
-    this.pascalController = this._snakeToPascal(this.controller);
     this.action = bodyTag.getAttribute('data-punchbox-action');
   }
 

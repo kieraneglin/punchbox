@@ -15,7 +15,6 @@ var Punchbox = function () {
       var bodyTag = document.getElementsByTagName('body')[0];
 
       this.controller = bodyTag.getAttribute('data-punchbox-controller');
-      this.pascalController = this._snakeToPascal(this.controller);
       this.action = bodyTag.getAttribute('data-punchbox-action');
     }
   }, {
@@ -84,12 +83,14 @@ var Punchbox = function () {
   }], [{
     key: 'on',
     value: function on(controller, classOrObject) {
+      var _this2 = this;
+
       var punchbox = new Punchbox();
       punchbox.instantiatable = classOrObject;
 
       punchbox._onPageLoad(function () {
         punchbox._assignAttributes();
-        if (controller === punchbox.pascalController) {
+        if (controller === _this2._snakeToPascal(punchbox.controller)) {
           punchbox._run();
         }
       });
