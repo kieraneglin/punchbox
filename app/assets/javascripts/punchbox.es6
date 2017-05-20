@@ -14,9 +14,9 @@ class Punchbox {
   _assignAttributes() {
     let bodyTag = document.getElementsByTagName('body')[0];
 
-    this.controller = bodyTag.dataset.punchboxController;
+    this.controller = bodyTag.getAttribute('data-punchbox-controller');
     this.pascalController = this._snakeToPascal(this.controller);
-    this.action = bodyTag.dataset.punchboxAction;
+    this.action = bodyTag.getAttribute('data-punchbox-action');
   }
 
   _callIfExists(functionName) {
@@ -24,6 +24,12 @@ class Punchbox {
 
     if (typeof instance[functionName] === 'function') {
       instance[functionName]();
+
+      if(functionName === 'controller') {
+        document.dispatchEvent(new Event(`punchbox:${this.controller}:run`));
+      } else {
+        document.dispatchEvent(new Event(`punchbox:${this.controller}:${this.action}:run`));
+      }
     }
   }
 
@@ -54,12 +60,8 @@ class Punchbox {
   _run() {
     // It's like 4am.  Please excuse my naming
     this.instantiatable = this._instantiate();
-
     this._callIfExists('controller');
-    document.dispatchEvent(new Event(`punchbox:${this.controller}:run`));
-
     this._callIfExists(this.action);
-    document.dispatchEvent(new Event(`punchbox:${this.controller}:${this.action}:run`));
   }
 
   _snakeToPascal(string) {
