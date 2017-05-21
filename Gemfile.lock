@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    Punchbox (0.1.0)
-      rails (~> 5.1.1)
+    punchbox (0.1.0)
+      rails (>= 4.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -46,7 +46,6 @@ GEM
       tzinfo (~> 1.1)
     arel (8.0.0)
     builder (3.2.3)
-    byebug (9.0.6)
     concurrent-ruby (1.0.5)
     erubi (1.6.0)
     globalid (0.4.0)
@@ -112,8 +111,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  Punchbox!
-  byebug
+  punchbox!
   sqlite3
 
 BUNDLED WITH

@@ -5,14 +5,14 @@ class Punchbox {
 
     punchbox._onPageLoad(() => {
       punchbox._assignAttributes();
-      if (controller === this._snakeToPascal(punchbox.controller)) {
+      if (controller === punchbox._snakeToPascal(punchbox.controller)) {
         punchbox._run();
       }
     });
   }
 
   _assignAttributes() {
-    let bodyTag = document.getElementsByTagName('body')[0];
+    let bodyTag = document.body;
 
     this.controller = bodyTag.getAttribute('data-punchbox-controller');
     this.action = bodyTag.getAttribute('data-punchbox-action');

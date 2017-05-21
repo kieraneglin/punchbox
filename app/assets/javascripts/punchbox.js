@@ -12,7 +12,7 @@ var Punchbox = function () {
   _createClass(Punchbox, [{
     key: '_assignAttributes',
     value: function _assignAttributes() {
-      var bodyTag = document.getElementsByTagName('body')[0];
+      var bodyTag = document.body;
 
       this.controller = bodyTag.getAttribute('data-punchbox-controller');
       this.action = bodyTag.getAttribute('data-punchbox-action');
@@ -90,7 +90,7 @@ var Punchbox = function () {
 
       punchbox._onPageLoad(function () {
         punchbox._assignAttributes();
-        if (controller === _this2._snakeToPascal(punchbox.controller)) {
+        if (controller === punchbox._snakeToPascal(punchbox.controller)) {
           punchbox._run();
         }
       });

@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "punchbox/version"
 
 Gem::Specification.new do |s|
-  s.name        = "Punchbox"
+  s.name        = "punchbox"
   s.version     = Punchbox::VERSION
   s.authors     = ["Kieran Eglin"]
   s.email       = ["kieran.eglin@gmail.com"]
@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "~> 5.1.1"
+  s.add_dependency "rails", ">= 4.0.0"
 
   s.add_development_dependency "sqlite3"
 end
