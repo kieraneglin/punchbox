@@ -9,15 +9,11 @@ Punchbox's syntax is a spiritual successor to [Paloma](https://github.com/kbpara
 
 Punchbox should work on Rails 4+ and really any Ruby version that's supported by your version of Rails.  There's really nothing fancy happening Ruby-side.
 
-The JavaScript is pure JS (no jQuery! 🎉).  It should work down to IE9, thereby working on 98% of browsers.
+The JavaScript is pure without any dependencies (no jQuery! 🎉).  It should work down to IE9, thereby working on 98% of browsers.
 
 Punchbox works with or without Turbolinks.
 
 The JavaScript is only ~840 *bytes* minified and gzipped.
-
-## Dependencies
-
-\* *dust* \*
 
 ## Installation
 
