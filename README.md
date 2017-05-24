@@ -3,7 +3,7 @@
 Punchbox is a dead-simple way to add page-specific JavaScript to your Rails project.
 The goal for this project is to have a focused scope (page-specific JS and nothing else), be as lightweight as possible, have no dependencies, and to run on <sup><sup>almost</sup></sup> any browser that runs JS.
 
-Punchbox's syntax is a spiritual successor to [Paloma](https://github.com/kbparagua/paloma) and is otherwise inspired by my contributions to [seed_tray](https://github.com/LoamStudios/seed_tray).
+Punchbox's syntax is a spiritual successor to [Paloma](https://github.com/kbparagua/paloma) and is otherwise inspired by a project I've contributed to in the past, [seed_tray](https://github.com/LoamStudios/seed_tray).
 
 ## Compatibility
 
