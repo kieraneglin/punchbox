@@ -17,7 +17,7 @@ The JavaScript is only ~840 *bytes* minified and gzipped.
 
 ## Dependencies
 
-\**dust*\*
+\* *dust* \*
 
 ## Installation
 
@@ -105,7 +105,7 @@ class Posts {
   // ...
 }
 
-Punchbox.on('Posts', Posts) // Notice that you don't instantiate the class
+Punchbox.on('Posts', Posts); // Notice that you don't instantiate the class
 ```
 
 **Function syntax**
@@ -123,7 +123,7 @@ Posts.prototype.index = function() {
   console.log('Hello from just the index action!');
 };
 
-Punchbox.on('Posts', Posts) // Notice that you don't instantiate the function
+Punchbox.on('Posts', Posts); // Notice that you don't instantiate the function
 ```
 
 **Object syntax**
@@ -139,7 +139,7 @@ var Posts = {
   }
 }
 
-Punchbox.on('Posts', Posts)
+Punchbox.on('Posts', Posts);
 ```
 
 **CoffeeScript**
@@ -159,7 +159,7 @@ Punchbox.on('Posts', Posts) # Notice that you don't instantiate the class
 
 If you want to contribute, don't hesitate to create an issue or PR!  Since this project is in it's infancy, your input could help shape the project as a whole!
 
-Please note that the magic happens inside `app/assets/punchbox.es6`.  `punchbox.js` is then created via Babel before deployment.  If you make a PR, please only edit `punchbox.es6`.
+Please note that the magic happens inside `app/assets/javascripts/punchbox.es6`.  `punchbox.js` is then created via Babel before deployment.  If you make a PR, please only edit `punchbox.es6`.
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/kieraneglin/punchbox/. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
