@@ -43,17 +43,17 @@ class Punchbox {
   }
 
   _onPageLoad(callback) {
-    if (window.Turbolinks) {
-      let loadEvent = Turbolinks.EVENTS ? 'page:change' : 'turbolinks:load';
+    let loadEvent;
 
-      document.addEventListener(loadEvent, () => {
-        callback();
-      });
+    if (window.Turbolinks) {
+      loadEvent = Turbolinks.EVENTS ? 'page:change' : 'turbolinks:load';
     } else {
-      window.onload = () => {
-        callback();
-      };
+      loadEvent = 'DOMContentLoaded';
     }
+
+    document.addEventListener(loadEvent, () => {
+      callback();
+    });
   }
 
   _run() {

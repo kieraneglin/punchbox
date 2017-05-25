@@ -46,17 +46,17 @@ var Punchbox = function () {
   }, {
     key: '_onPageLoad',
     value: function _onPageLoad(callback) {
-      if (window.Turbolinks) {
-        var loadEvent = Turbolinks.EVENTS ? 'page:change' : 'turbolinks:load';
+      var loadEvent = void 0;
 
-        document.addEventListener(loadEvent, function () {
-          callback();
-        });
+      if (window.Turbolinks) {
+        loadEvent = Turbolinks.EVENTS ? 'page:change' : 'turbolinks:load';
       } else {
-        window.onload = function () {
-          callback();
-        };
+        loadEvent = 'DOMContentLoaded';
       }
+
+      document.addEventListener(loadEvent, function () {
+        callback();
+      });
     }
   }, {
     key: '_run',
@@ -83,8 +83,6 @@ var Punchbox = function () {
   }], [{
     key: 'on',
     value: function on(controller, classOrObject) {
-      var _this2 = this;
-
       var punchbox = new Punchbox();
       punchbox.instantiatable = classOrObject;
 
