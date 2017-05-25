@@ -65,7 +65,7 @@ Punchbox automatically runs your code after your document is ready, negating the
 
 `controller` should be a string or a function that returns a string.  It should be the exact name of the controller (plus namespace) that you want your code to run on.  It should be ClassCase (PascalCase) only.
 
-For example, if your controller is `PostsController`, you'd enter 'Posts'.  If your controller is `AdminPanelsController`, you'd enter `AdminPanels`.
+For example, if your controller is `PostsController`, you'd enter `Posts`.  If your controller is `AdminPanelsController`, you'd enter `AdminPanels`.
 
 #### Namespacing
 
@@ -83,7 +83,7 @@ Functions should be named after the actions on which they should run.  A functio
 
 The exception is `controller`.  Punchbox treats functions named `controller` in a special way and runs them on every action in a given Rails controller.
 
-#### Examples
+### Examples
 
 In all examples I'll be targeting the `Posts` controller. *Remember that the name of your `callable` or your JS filepath don't have anything to do with Punchbox's functionality. However, I'll be naming the callables after the controllers to keep up with the preferred convention.*
 
@@ -150,6 +150,30 @@ class Posts
     console.log 'Hello from just the index action!'
 
 Punchbox.on('Posts', Posts) # Notice that you don't instantiate the class
+```
+
+### Events
+
+Every time a controller or action function is run, some events on `document` fire.
+
+These events are `punchbox:<controller>:run` and `punchbox:<controller>:<action>:run`.  These both run when their respective functions would run.
+
+Keep in mind that the events are `snake_case` with slashes preserved.
+
+For example, you would listen to the `Posts` controller trigger like so:
+
+```javascript
+document.addEventListener('punchbox:posts:run', () => {
+  console.log('Posts controller ran!');
+})
+```
+
+and you'd listen to the `Posts` `index` trigger like so:
+
+```javascript
+document.addEventListener('punchbox:posts:index:run', () => {
+  console.log('Posts index ran!');
+})
 ```
 
 ## Contributing
