@@ -6,6 +6,8 @@ The goal for this project is to have a focused scope (page-specific JS and nothi
 
 Punchbox's syntax is a spiritual successor to [Paloma](https://github.com/kbparagua/paloma) and is otherwise inspired by a project I've contributed to in the past, [seed_tray](https://github.com/LoamStudios/seed_tray).
 
+**Looking for a friendly walkthrough?  [Check here](https://kierancodes.com/blog/page-specific-javascript-in-rails-4)**
+
 ## Compatibility
 
 Punchbox should work on Rails 4+ and really any Ruby version that's supported by your version of Rails.  There's really nothing fancy happening Ruby-side.
