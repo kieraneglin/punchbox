@@ -1,4 +1,4 @@
-# Punchbox 👊
+# Punchbox 👊 - Page-specific JavaScript in Rails
 
 Punchbox is a dead-simple way to add page-specific JavaScript to your Rails project.
 
