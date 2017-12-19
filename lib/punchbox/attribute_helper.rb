@@ -5,9 +5,9 @@ module AttributeHelper
   end
 
   def punchbox_data
-    {
-      punchbox_controller: controller_path,
-      punchbox_action: action_name
+    'data' => {
+      'punchbox-controller' => controller_path,
+      'punchbox-action' => action_name
     }
   end
 end
