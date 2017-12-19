@@ -52,6 +52,14 @@ Finally, include the `punchbox_attributes` hooks in your main `<body>` tag.
   <%= yield %>
 </body>
 ```
+
+You might also include the attributes with `punchbox_data`, which returns a plain ruby `data:` object. Useful for using with templating languages like Erb, Haml and Slim.
+
+```slim
+body *punchbox_data
+  == yield
+```
+
 ## Usage
 
 Punchbox's syntax is very similar to that of Paloma's.  To run JS on a certain page, you call Punchbox like so:
