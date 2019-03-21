@@ -7,7 +7,7 @@ The goal for this project is to have a focused scope (page-specific JS and nothi
 
 Punchbox's syntax is a spiritual successor to [Paloma](https://github.com/kbparagua/paloma) and is otherwise inspired by a project I've contributed to in the past, [seed_tray](https://github.com/LoamStudios/seed_tray).
 
-**Looking for a friendly walkthrough?  [Check here](https://kierancodes.com/blog/page-specific-javascript-in-rails-4)**
+**Looking for a friendly walkthrough?  [Check here](https://medium.com/kierancodes/page-specific-javascript-in-rails-4-a48c17efa580)**
 
 ## Compatibility
 
